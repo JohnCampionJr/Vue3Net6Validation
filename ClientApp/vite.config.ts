@@ -11,8 +11,8 @@ import PROXY_CONFIG from './proxy.conf'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
-    },
+      '~/': `${path.resolve(__dirname, 'src')}/`
+    }
   },
   plugins: [
     Vue(),
@@ -33,10 +33,10 @@ export default defineConfig({
       customComponentResolvers: [
         // https://github.com/antfu/vite-plugin-icons
         ViteIconsResolver({
-          componentPrefix: '',
+          componentPrefix: ''
           // enabledCollections: ['carbon']
-        }),
-      ],
+        })
+      ]
     }),
 
     // https://github.com/antfu/vite-plugin-icons
@@ -46,25 +46,25 @@ export default defineConfig({
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [path.resolve(__dirname, 'locales/**')],
-    }),
+      include: [path.resolve(__dirname, 'locales/**')]
+    })
   ],
 
   server: {
     fs: {
-      strict: true,
-      },
-      proxy: PROXY_CONFIG
+      strict: true
+    },
+    proxy: PROXY_CONFIG
   },
 
   optimizeDeps: {
     include: [
       'vue',
       'vue-router',
-      '@vueuse/core',
+      '@vueuse/core'
     ],
     exclude: [
-      'vue-demi',
-    ],
-  },
+      'vue-demi'
+    ]
+  }
 })

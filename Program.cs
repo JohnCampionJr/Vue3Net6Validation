@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNet6VueStarter
+namespace Vue3Net6Validation
 {
     public class Program
     {

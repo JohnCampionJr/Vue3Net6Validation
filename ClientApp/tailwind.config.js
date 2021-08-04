@@ -1,6 +1,7 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const colors = require('tailwindcss/colors')
+const forms = require('@tailwindcss/forms')
 const typography = require('@tailwindcss/typography')
 
 module.exports = {
@@ -11,16 +12,21 @@ module.exports = {
       './index.html',
       './src/**/*.vue',
       './src/**/*.js',
-      './src/**/*.ts',
+      './src/**/*.ts'
     ],
-    safelist: ['prose', 'prose-sm', 'm-auto', 'text-left'],
+    safelist: ['prose', 'prose-sm', 'm-auto', 'text-left']
   },
   darkMode: 'class',
-  plugins: [typography],
+  plugins: [typography, forms],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-to-b-70': 'linear-gradient(to bottom, var(--tw-gradient-stops) 70%)'
+      },
       colors: {
-        teal: colors.teal,
+        'blazor-blue': '#052767',
+        'blazor-indigo': '#3a0647',
+        'teal': colors.teal
       },
       typography: {
         DEFAULT: {
@@ -31,8 +37,8 @@ module.exports = {
               'opacity': 0.75,
               '&:hover': {
                 opacity: 1,
-                color: colors.teal[600],
-              },
+                color: colors.teal[600]
+              }
             },
             b: { color: 'inherit' },
             strong: { color: 'inherit' },
@@ -41,10 +47,10 @@ module.exports = {
             h2: { color: 'inherit' },
             h3: { color: 'inherit' },
             h4: { color: 'inherit' },
-            code: { color: 'inherit' },
-          },
-        },
-      },
-    },
-  },
+            code: { color: 'inherit' }
+          }
+        }
+      }
+    }
+  }
 }

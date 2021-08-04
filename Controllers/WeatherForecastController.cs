@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNet6VueStarter.Controllers
+namespace Vue3Net6Validation.Controllers
 {
     [ApiController]
     [Route("[controller]")]

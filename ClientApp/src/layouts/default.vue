@@ -1,9 +1,17 @@
 <template>
-  <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
-    <router-view />
-    <Footer />
-    <div class="mt-5 mx-auto text-center opacity-25 text-sm">
-      [Default Layout]
+  <div class="flex flex-col w-full h-screen md:flex-row">
+    <NavMenu />
+    <div class="flex flex-col flex-grow w-full bg-white">
+      <div
+        class="flex-row items-center justify-between flex-shrink-0 hidden px-4 pr-8 text-blue-500 bg-gray-100 border-b border-gray-300 md:flex h-14"
+      >
+        <a href="https://github.com/JohnCampionJr/Vue3Net6Validation" target="_blank" class="ml-md-auto">About</a>
+      </div>
+      <div class="flex-grow py-5 pl-8 pr-6">
+        <router-view />
+      </div>
     </div>
-  </main>
+  </div>
 </template>
+
+<script setup lang="ts"></script>
