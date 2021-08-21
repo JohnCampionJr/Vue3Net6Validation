@@ -1,29 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Features.Base;
 
-namespace Vue3Net6Validation.Controllers
+namespace Vue3Net6Validation.Controllers;
+
+public class PersonEndpoint : BaseEndpoint
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PersonController : ControllerBase
+    [HttpPost("api/person")]
+    public Result Index(Person model)
     {
-        [HttpPost]
-        public IActionResult Index(Person model)
+        if (model.EmailAddress.Contains("gmail.com"))
         {
-            if (model.EmailAddress.Contains("nonymous.com"))
-            {
-               ModelState.AddModelError(nameof(model.EmailAddress), "We do not allow emails from this domain.");
+            ModelState.AddModelError(nameof(model.EmailAddress), "We do not allow emails from gmail.");
+            ModelState.AddModelError(nameof(model.EmailAddress), "Testing second errors.");
 
-               return BadRequest(new BaseResult().Errors(ModelState));
-            }
-
-            return Ok(new PersonResult { IsSuccessful = true, Message = "Looks good to the server." });
-
+            return new Result().Invalid(ModelState);
         }
+
+        return new Result().Success("Looks good to the server.");
+
     }
-
-
 }
