@@ -16,6 +16,10 @@ declare module 'vue' {
     OiHome: typeof import('virtual:vite-icons/oi/home')['default']
     OiListRich: typeof import('virtual:vite-icons/oi/list-rich')['default']
     OiPlus: typeof import('virtual:vite-icons/oi/plus')['default']
+    VuelidateFullInput: typeof import('./src/components/VuelidateFullInput.vue')['default']
+    VuelidateInput: typeof import('./src/components/VuelidateInput.vue')['default']
+    VuelidateInputText: typeof import('./src/components/VuelidateInputText.vue')['default']
+    VuelidateMessages: typeof import('./src/components/VuelidateMessages.vue')['default']
   }
 }
 

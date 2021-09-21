@@ -9,56 +9,22 @@
       {{ error }}
     </div>
     <div>
-      <label>Name: </label>
-      <div :class="{ error: v$.name.$errors.length }">
-        <input
-          v-model="model.name"
-          name="name"
-          type="text"
-          class="form-control"
-          :class="{ 'is-invalid': v$.name.$errors.length }"
-        >
-        <div v-for="error of v$.name.$errors" :key="error.$uid" class="input-errors">
-          <div class="invalid-feedback">
-            {{ error.$message }}
-          </div>
-        </div>
-      </div>
+      <VuelidateFullInput :v="v$.name"></VuelidateFullInput>
     </div>
 
     <div>
       <label>Age: </label>
-      <div :class="{ error: v$.age.$errors.length }">
-        <input
-          v-model="model.age"
-          name="age"
-          type="number"
-          class="form-control"
-          :class="{ 'is-invalid': v$.age.$errors.length }"
-        >
-        <div v-for="error of v$.age.$errors" :key="error.$uid" class="input-errors">
-          <div class="invalid-feedback">
-            {{ error.$message }}
-          </div>
-        </div>
+      <div>
+        <VuelidateInput type="number" :v="v$.age"></VuelidateInput>
+        <VuelidateMessages :v="v$.age"></VuelidateMessages>
       </div>
     </div>
 
     <div>
       <label>Email: </label>
-      <div :class="{ error: v$.emailAddress.$errors.length }">
-        <input
-          v-model="model.emailAddress"
-          name="emailAddress"
-          type="email"
-          class="form-control"
-          :class="{ 'is-invalid': v$.emailAddress.$errors.length }"
-        >
-        <div v-for="error of v$.emailAddress.$errors" :key="error.$uid" class="input-errors">
-          <div class="invalid-feedback">
-            {{ error.$message }}
-          </div>
-        </div>
+      <div>
+        <VuelidateInput :v="v$.emailAddress"></VuelidateInput>
+        <VuelidateMessages :v="v$.emailAddress"></VuelidateMessages>
       </div>
     </div>
 
@@ -66,7 +32,7 @@
       Save
     </button>
   </div>
-  {{ v$ }}
+  <pre>{{ v$.age }}</pre>
 </template>
 
 <script setup lang="ts">
@@ -98,7 +64,7 @@ const onSubmit = async() => {
     const response = await axios.post('api/person', model)
     message.value = response.data.successMessage
   }
-  catch (ex) {
+  catch (ex: any) {
     error.value = ex.response.data.errorMessage
 
     $externalResults.value = ex.response.data.validationErrors
@@ -110,7 +76,7 @@ const onSubmit = async() => {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 .is-invalid {
   @apply border-red-300;
 }

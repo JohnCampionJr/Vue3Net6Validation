@@ -46,7 +46,13 @@
         <li>
           <router-link to="/Validation">
             <oi-list-rich class="w-6 mr-3" />
-            Validation
+            Validation (VeeValidate)
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/Vuelidate">
+            <oi-list-rich class="w-6 mr-3" />
+            Validation (Vuelidate)
           </router-link>
         </li>
       </ul>
