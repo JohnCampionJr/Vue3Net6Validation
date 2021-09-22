@@ -19,6 +19,6 @@ const increment = (): void => {
 }
 
 const reset = (): void => {
-  counter.reset()
+  counter.$reset()
 }
 </script>
